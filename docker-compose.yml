@@ -1,0 +1,11 @@
+version: "3"
+services:
+  web:
+    image: cloudcommanderdotnet/face-mask-iot:RPi
+    command: python3 face-mask-iot.py
+    ports:
+      - "80:5000"
+    volumes:
+      - /dev/bus/usb:/dev/bus/usb
+      - /home/pi/Thing:/inference/vol
+    privileged: true
